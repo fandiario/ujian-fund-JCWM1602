@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 2 Fibonacci</title>
+</head>
+<body>
+    <h1>DERET FIBONACCI</h1>
+    <label for="input-number">Masukkan Angka</label>
+    <input type="number" name="input-number" id="input-number">
+    <br><br>
+    <input type="button" value="SHOW" id="show-result" class="button-result">
+    <input type="button" value="GANJIL" id="odd-addition" class="button-result">
+    <input type="button" value="GENAP" id="event-addition" class="button-result">
+
+    <h3 id="result"></h3>
+</body>
+<script>
+    let buttons = document.getElementsByClassName ("button-result")
+    buttons[0].addEventListener ("click",function (){return fibonacci ("show")})
+    buttons[1].addEventListener ("click",function (){return fibonacci ("odd")})
+    buttons[2].addEventListener ("click",function (){return fibonacci ("event")})
+
+    function fibonacci (operation) {
+        let result = ""
+        let arr = []
+        let input1 = 0
+        let input2 = 1
+        let temp = 0
+        let outputOdd = 0
+        let outputEven = 0
+
+        let limit = document.getElementById ("input-number").value
+
+        if (operation == "show") {
+            
+            arr.push (temp)
+            arr.push (input2)
+
+            while (temp < limit) {
+                temp = input1 + input2
+                input2 = input1
+                input1 = temp
+
+                arr.push (temp)
+            }
+            
+            for (let j = 0; j < arr.length; j++) {
+                result += arr[j]
+                result += " "
+            }
+
+            console.log (arr)
+
+            let h3 = document.getElementById ("result")
+            h3.innerHTML = result
+
+        } else if (operation == "odd") {
+
+            arr.push (temp)
+
+            while (temp < limit) {
+                temp = input1 + input2
+                input2 = input1
+                input1 = temp
+
+                arr.push (temp)
+            }
+            
+            for (let i = 0; i < arr.length; i++) {
+                
+                if (arr[i] % 2 != 0) {
+                    result += ` ${arr[i]}`
+                    result += " +"
+                    
+                    outputOdd += arr[i]
+                }
+            }
+            let res = result.slice (0,-1)
+            res += " = "
+            res += outputOdd
+
+            let h3 = document.getElementById ("result")
+            h3.innerHTML = res
+
+        } else if (operation == "event") {
+
+            arr.push (temp)
+            arr.push (input2)
+
+            while (temp < limit) {
+                temp = input1 + input2
+                input2 = input1
+                input1 = temp
+
+                arr.push (temp)
+            }
+
+            for (let i = 0; i < arr.length; i++) {
+                
+                if (arr[i] % 2 == 0) {
+                    result += `${arr[i]}`
+                    result += " +"
+                    
+                    outputEven += arr[i]
+                }
+
+            }
+
+            let res = result.slice (0,-1)
+            res += " = "
+            res += outputEven
+
+            let h3 = document.getElementById ("result")
+            h3.innerHTML = res
+
+        }
+
+    }
+</script>
+</html>

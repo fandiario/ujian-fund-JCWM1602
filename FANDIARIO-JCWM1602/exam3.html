@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 3 Form</title>
+    <style>
+        table, thead, tr, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h1>FORM USERS</h1>
+    <br>
+    <input type="text" placeholder="username" id="username" class="input-data">
+    <input type="text" placeholder="email" id="email" class="input-data">
+
+    <label for="dropdown-role"></label>
+    <select name="dropdown-role" id="role" class="input-data">
+        <option value="user">user</option>
+        <option value="admin">admin</option>
+    </select>
+    <br><br>
+    <input type="button" value="ADD USER" id="submit-data">
+    <br>
+
+    <h1>USERS DATA</h1>
+    <table id="users-data">
+        <thead>
+            <tr>
+                <td>No.</td>
+                <td>Username</td>
+                <td>Email</td>
+                <td>Role</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+        </tbody>
+    </table>    
+</body>
+<script src="users-database.js"></script>
+<script src="users-function.js"></script>
+</html>

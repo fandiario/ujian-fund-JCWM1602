@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 1 Pattern</title>
+</head>
+<body>
+    <h1>PATTERN</h1>
+    <input type="number" id="input-number" placeholder="masukkan angka">
+    <br><br>
+    <input type="button" value="GANJIL" id="button-ganjil">
+    <input type="button" value="HURUF" id="button-huruf">
+    <br>
+    <h1 id="output"></h1>
+</body>
+<script>
+
+    let buttonGanjil = document.getElementById("button-ganjil")
+    let buttonHuruf = document.getElementById("button-huruf")
+
+    function patternOdd () {
+        let columns = Number(document.getElementById ("input-number").value)
+        
+        let result = ``
+        let num = 1
+
+        if (columns > 4 || columns < 0) {
+            alert (" Please insert max. number is 4  and min. number is 0")
+        
+        } else {
+            for (let i = 0; i < columns; i++ ) {                
+
+                for (let j = 0; j <= i; j++) {
+                    result += num
+                    num += 2
+                    result += " "
+                }
+                result += "\n"
+            }
+
+            console.log (result)
+            document.getElementById ("output").innerHTML = `${result} \n`
+
+        }
+
+    }
+    buttonGanjil.addEventListener ("click", patternOdd)
+
+    function patternLetter () {
+        let columns = Number(document.getElementById ("input-number").value)
+
+        let num = 1
+        let letters = "abcdefghijklmnopqrstuvwxyz"
+
+        if (columns > 4 || columns < 0) {
+            alert (" Please insert max. number is 4  and min. number is 0")
+        
+        } else {
+            for (let i = 0; i < columns; i++ ) {
+                let result = ""                
+
+                for (let j = 0; j <= i; j++) {
+                    result += letters[j + num]
+                    num += 2
+                    // result += letters[j + 2]
+                    result += " "
+                }
+
+                console.log (result)
+                document.getElementById ("output").innerHTML = `${result} \n`
+            }
+
+        }
+
+    }
+    buttonHuruf.addEventListener ("click", patternLetter)
+
+</script>
+</html>
